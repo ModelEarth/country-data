@@ -4,7 +4,7 @@
 commodity/2020/comtrade-000001-2020.csv
 
 **Columns**  
-CountyCode (formated as 1 rather than 000001)  
+CountyCode  
 ExportValueUSD  
 ImportValueUSD  
 Population (when available)  
