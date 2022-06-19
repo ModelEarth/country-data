@@ -5,10 +5,10 @@ Please help us keep these CSV files current by pushing an update annually.
 
 Download, unzip and rename if the current year is more than 3 years greater than the far right column.
 
-population-total.csv
+population-total.csv  
 https://data.worldbank.org/indicator/SP.POP.TOTL
 
-population-density.csv (Density per square meter)
+population-density.csv (Density per square meter)  
 https://data.worldbank.org/indicator/EN.POP.DNST
 
 
