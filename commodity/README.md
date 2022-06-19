@@ -7,5 +7,5 @@ commodity/2020/comtrade-000001-2020.csv
 CountyCode  
 ExportValueUSD  
 ImportValueUSD  
-Population (when available)  
-SqKm (when available)  
+Population (from population/population-total.csv)  
+Density (from population/population-density.csv)  
