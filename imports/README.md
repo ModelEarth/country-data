@@ -4,7 +4,7 @@
 imports/BRN/2020/BRN-comtrade-imports-2020.csv
 
 **Columns**  
-CommodityCode
-Exporter (3 character country code, differs from importer in the file title)
-ValueUSD
+CommodityCode  
+Exporter (3 character country code, differs from importer in the file title)  
+ValueUSD  
 
