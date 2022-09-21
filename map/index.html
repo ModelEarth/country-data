@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Model.earth country map</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+
+<script src="https://openhistoricalmap.github.io/mbgl-timeslider/dist/mbgl-control-timeslider.js"></script>
+<link rel="stylesheet" href="https://openhistoricalmap.github.io/mbgl-timeslider/dist/mbgl-control-timeslider.css" />
+
+
+</head>
+<body>
+<div id="map"></div>
+ 
+ <style>
+ .mapboxgl-ctrl-top-right {
+ 	top: auto;
+ 	bottom: 0;
+ 	z-index: 100;
+ }
+ .mbgl-control-timeslider {
+
+ 	bottom: 0;
+ 	left: 0;
+ 	right: -10;
+ }
+ </style>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZGF0YXBvcnRhbCIsImEiOiJjam1tOXhpeGUwZ3IyM3BtbGIwbWV1NjIxIn0.K07Nah9ZjewCR0iV4pYw_Q';
+const map = new mapboxgl.Map({
+container: 'map',
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'mapbox://styles/mapbox/satellite-streets-v11',
+zoom: 2.2,
+center: [30, 50],
+projection: 'globe'
+});
+ 
+map.on('load', () => {
+// Set the default atmosphere style
+map.setFog({});
+});
+
+const marker = new mapboxgl.Marker({
+color: "#cc3333",
+draggable: true
+}).setLngLat([7.7239903,33.8291667])
+.addTo(map);
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
+/*
+map.flyTo({
+	center: [7.7239903,33.8291667], zoom: 14, speed: 0.2,
+	curve: 1,
+	easing(t) {
+	return t;
+	}
+});
+*/
+
+var dateslider;
+
+map.on('load', function () {
+    dateslider = new TimeSlider.TimeSliderControl({
+        sourcename: "ohm-data",     // required
+        date: 1850,
+        range: [1800, 2022],
+        datelimit: [1600, 2100],
+        onDateSelect: function (newdate) {
+            console.log([ 'date changed', newdate ]);
+        },
+        onRangeChange: function (newrange) {
+            console.log([ 'range changed', newrange[0], newrange[1] ]);
+        }
+    });
+    map.addControl(dateslider);
+});
+
+</script>
+ 
+
+
+</body>
+</html>
