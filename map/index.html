@@ -247,18 +247,18 @@ map.on('moveend', () => {
 	spinGlobe();
 });
 
-/*
-document.getElementById('btn-spin').addEventListener('click', (e) => {
-	spinEnabled = !spinEnabled;
-	if (spinEnabled) {
-	spinGlobe();
-	e.target.innerHTML = 'Pause rotation';
-	} else {
-	map.stop(); // Immediately end ongoing animation
-	e.target.innerHTML = 'Start rotation';
-	}
+document.addEventListener("DOMContentLoaded", function(event) { // $(document).ready equivalent without jQuery
+	document.getElementById('btn-spin').addEventListener('click', (e) => {
+		spinEnabled = !spinEnabled;
+		if (spinEnabled) {
+		spinGlobe();
+		e.target.innerHTML = 'Pause rotation';
+		} else {
+		map.stop(); // Immediately end ongoing animation
+		e.target.innerHTML = 'Start rotation';
+		}
+	});
 });
-*/
 
 // Bug - something in mbgl-timeslider stops rotaion after it starts
 spinGlobe();
@@ -267,6 +267,28 @@ spinGlobe();
 
 <div style="float:right; padding:20px">
 	Our additional development at: <a href="https://model.earth/mbgl-timeslider/demo/">model.earth/mbgl-timeslider/demo/</a>
+
+	<style>
+	#btn-spin {
+		float: right;
+		display: inline-block;
+		font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		background-color: #3386c0;
+		color: #fff;
+		z-index: 1;
+		border: none;
+		width: 120px;
+		display: block;
+		cursor: pointer;
+		padding: 10px 10px;
+		margin-left: 10px;
+		border-radius: 3px;
+	}
+	#btn-spin:hover {
+		background-color: #4ea0da;
+	}
+	</style>
+	<button id="btn-spin">Pause rotation</button>
 </div>
 
 </body>
